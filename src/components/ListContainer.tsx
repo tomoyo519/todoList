@@ -19,6 +19,7 @@ export default function ListContainer({ list, setList }: IList) {
     if (list.length === 1) {
       setList([
         {
+          //id값 초기화 필요
           author: "",
           ToDoList: "",
         },
@@ -30,6 +31,7 @@ export default function ListContainer({ list, setList }: IList) {
 
   const editTodo = (e: any) => {
     console.log("thisise", e);
+    //수정중인게 있는지 확인해야함
     setChangeStatus(true);
     setWillChangedTodo(e.target.id);
   };
@@ -41,6 +43,7 @@ export default function ListContainer({ list, setList }: IList) {
   };
   return (
     <div className="space-y-5 ml-5 w-96">
+      {/* 렌더링 최적화? useMemo를 이용하기 */}
       {list[0].author &&
         list.map((todo, idx) => {
           return (
@@ -118,6 +121,7 @@ export default function ListContainer({ list, setList }: IList) {
                       strokeWidth={1.5}
                       stroke="currentColor"
                       className="w-6 h-6"
+                      //onclick은 버튼에 다는 경우가 많다.(접근성)
                       onClick={(e) => {
                         editTodo(e);
                       }}

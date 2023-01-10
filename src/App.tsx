@@ -20,6 +20,8 @@ function App() {
     },
   ]);
 
+  //useCallback 으로 감싸줘야 한다..
+
   return (
     <div className="flex items-center justify-center w-screen h-screen">
       <InputToDo setList={setList} list={list} />
